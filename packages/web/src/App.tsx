@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ErrorBoundary } from "react-error-boundary";
+import { Toaster } from "react-hot-toast";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { ErrorScreen } from "./common/screens/ErrorScreen";
@@ -30,6 +31,7 @@ function App() {
   return (
     <ErrorBoundary fallback={<ErrorScreen />}>
       <QueryClientProvider client={queryClient}>
+        <Toaster />
         <RouterProvider router={router} />
       </QueryClientProvider>
     </ErrorBoundary>

@@ -1,5 +1,8 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { Link } from "lucide-react";
+import toast from "react-hot-toast";
 
+import { Button } from "@/common/components/button";
 import { getMenuItem } from "@/common/queries/getMenuItem";
 
 interface MenuItemDrawerContentProps {
@@ -25,7 +28,18 @@ export function MenuItemDrawerContent(props: MenuItemDrawerContentProps) {
         <div className="flex justify-center items-center w-full h-[330px] text-lg bg-gray-300">ไม่มีภาพประกอบ</div>
       )}
       <div className="flex flex-col items-center gap-2 px-6 pb-6 w-full">
-        <p className="text-2xl lg:text-3xl border-b pb-3 border-gray-300 w-full">ราคา {data.discountedPrice} บาท</p>
+        <div className="flex items-center justify-between gap-2 border-b pb-3 border-gray-300 w-full">
+          <p className="text-2xl lg:text-3xl">ราคา {data.discountedPrice} บาท</p>
+          <Button
+            variant="outline"
+            onClick={() => {
+              void navigator.clipboard.writeText(window.location.href);
+              toast.success("คัดลอกลิงค์สำเร็จ");
+            }}
+          >
+            <Link />
+          </Button>
+        </div>
         {data.options.map((option) => (
           <div key={option.label} className="flex flex-col gap-2 w-full">
             <h3 className="text-xl lg:text-2xl">{option.label}</h3>

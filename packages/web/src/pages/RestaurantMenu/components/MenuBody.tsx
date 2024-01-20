@@ -32,8 +32,8 @@ export function MenuBody(props: MenuBodyProps) {
   }, [inView, hasNextPage, isFetchingNextPage, fetchNextPage]);
 
   return (
-    <PageContainer className="lg:px-1">
-      <div className="flex flex-col my-4">
+    <PageContainer className="lg:px-1 my-4">
+      <div className="flex flex-col">
         {data.pages
           .flatMap((page) => page.data)
           .map((menu, i) => (

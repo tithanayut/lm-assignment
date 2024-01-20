@@ -26,10 +26,10 @@ export function MenuItemDrawerContent(props: MenuItemDrawerContentProps) {
       )}
       <div className="flex flex-col items-center gap-2 px-6 pb-6 w-full">
         <p className="text-2xl lg:text-3xl border-b pb-3 border-gray-300 w-full">ราคา {data.discountedPrice} บาท</p>
-        {data.options?.map((option) => (
+        {data.options.map((option) => (
           <div key={option.label} className="flex flex-col gap-2 w-full">
             <h3 className="text-xl lg:text-2xl">{option.label}</h3>
-            {option.choices?.map((choice) => (
+            {option.choices.map((choice) => (
               <h4 key={choice.label} className="text-lg lg:text-xl">
                 - {choice.label}
               </h4>

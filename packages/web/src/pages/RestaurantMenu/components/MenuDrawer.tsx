@@ -33,7 +33,7 @@ export function MenuDrawer(props: MenuDrawerProps) {
           <ChevronDown className="h-8 lg:h-10 w-8 lg:w-10 opacity-50" />
         </button>
         <Suspense fallback={<MenuDrawerContentFallback />}>
-          <MenuItemDrawerContent restaurantId={restaurantId} menuId={menuId} />
+          {menuId && <MenuItemDrawerContent restaurantId={restaurantId} menuId={menuId} />}
         </Suspense>
       </DrawerContent>
     </Drawer>

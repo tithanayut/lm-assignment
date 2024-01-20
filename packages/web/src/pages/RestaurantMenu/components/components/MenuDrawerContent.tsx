@@ -3,6 +3,7 @@ import { Link } from "lucide-react";
 import toast from "react-hot-toast";
 
 import { Button } from "@/common/components/button";
+import { RadioGroup, RadioGroupItem } from "@/common/components/radio-group";
 import { getMenuItem } from "@/common/queries/getMenuItem";
 
 interface MenuItemDrawerContentProps {
@@ -40,14 +41,24 @@ export function MenuItemDrawerContent(props: MenuItemDrawerContentProps) {
             <Link />
           </Button>
         </div>
+
         {data.options.map((option) => (
           <div key={option.label} className="flex flex-col gap-2 w-full">
             <h3 className="text-xl lg:text-2xl">{option.label}</h3>
-            {option.choices.map((choice) => (
-              <h4 key={choice.label} className="text-lg lg:text-xl">
-                - {choice.label}
-              </h4>
-            ))}
+            <RadioGroup className="px-2">
+              {option.choices.map((choice) => (
+                <div key={choice.label} className="flex items-center space-x-2">
+                  <RadioGroupItem
+                    value={`${option.label}${choice.label}`}
+                    id={`${option.label}${choice.label}`}
+                    className="text-lg lg:text-xl"
+                  />
+                  <label htmlFor={`${option.label}${choice.label}`} className="text-lg lg:text-xl">
+                    {choice.label}
+                  </label>
+                </div>
+              ))}
+            </RadioGroup>
           </div>
         ))}
       </div>

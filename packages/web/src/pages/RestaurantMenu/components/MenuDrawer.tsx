@@ -23,7 +23,7 @@ export function MenuDrawer(props: MenuDrawerProps) {
         setOpen(open);
       }}
     >
-      <DrawerContent className="min-h-[calc(100vh*0.8)] max-h-[calc(100vh*0.8)] lg:w-[calc(100vw*0.75)] border-0 mx-auto">
+      <DrawerContent className="h-[calc(100vh*0.9)] lg:h-[calc(100vh*0.8)] lg:w-[calc(100vw*0.75)] border-0 mx-auto">
         <button
           className="absolute z-10 top-6 right-5"
           onClick={() => {

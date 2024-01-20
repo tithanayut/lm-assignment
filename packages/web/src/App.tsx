@@ -1,10 +1,9 @@
-
-function App() {
+function App(): JSX.Element {
   return (
     <div>
       <h1>Edit this app to complete LINE MAN Wongnai Frontend Assignment!</h1>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -2,12 +2,12 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 
 import { getMenuItem } from "@/common/queries/getMenuItem";
 
-interface MenuDetailProps {
+interface MenuItemDrawerContentProps {
   restaurantId: string;
   menuId: string;
 }
 
-export function MenuItemDrawerContent(props: MenuDetailProps) {
+export function MenuItemDrawerContent(props: MenuItemDrawerContentProps) {
   const { restaurantId, menuId } = props;
   const { data } = useSuspenseQuery({
     queryKey: ["restaurants", restaurantId, "menus", menuId],

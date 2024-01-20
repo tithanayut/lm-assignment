@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { ErrorScreen } from "./common/screens/ErrorScreen";
 import { NotFoundScreen } from "./common/screens/NotFoundScreen";
-import { RestaurantMenuList } from "./pages/RestaurantMenuList/RestaurantMenuList";
+import { RestaurantMenu } from "./pages/RestaurantMenu/RestaurantMenu";
 import { RestaurantSelection } from "./pages/RestaurantSelection/RestaurantSelection";
 
 const router = createBrowserRouter([
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/restaurant/:restaurantId/*",
-    element: <RestaurantMenuList />,
+    element: <RestaurantMenu />,
     errorElement: <ErrorScreen />,
   },
   {

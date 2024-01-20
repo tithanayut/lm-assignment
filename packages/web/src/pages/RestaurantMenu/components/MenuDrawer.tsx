@@ -3,17 +3,17 @@ import { Suspense } from "react";
 
 import { Drawer, DrawerContent } from "@/common/components/drawer";
 
-import { MenuItemDrawerContent } from "./components/MenuItemDrawerContent";
-import { MenuItemDrawerContentFallback } from "./components/MenuItemDrawerContentFallback";
+import { MenuItemDrawerContent } from "./components/MenuDrawerContent";
+import { MenuDrawerContentFallback } from "./components/MenuDrawerContentFallback";
 
-interface MenuInfoDrawerProps {
+interface MenuDrawerProps {
   isOpen: boolean;
   setOpen: (open: boolean) => void;
   restaurantId: string;
   menuId: string;
 }
 
-export function MenuItemDrawer(props: MenuInfoDrawerProps) {
+export function MenuDrawer(props: MenuDrawerProps) {
   const { isOpen, setOpen, restaurantId, menuId } = props;
 
   return (
@@ -32,7 +32,7 @@ export function MenuItemDrawer(props: MenuInfoDrawerProps) {
         >
           <ChevronDown className="h-8 lg:h-10 w-8 lg:w-10 opacity-50" />
         </button>
-        <Suspense fallback={<MenuItemDrawerContentFallback />}>
+        <Suspense fallback={<MenuDrawerContentFallback />}>
           <MenuItemDrawerContent restaurantId={restaurantId} menuId={menuId} />
         </Suspense>
       </DrawerContent>

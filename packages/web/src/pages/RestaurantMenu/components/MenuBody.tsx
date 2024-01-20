@@ -5,11 +5,11 @@ import { getMenuList } from "@/common/queries/getMenuList";
 
 import { MenuItem } from "./components/MenuItem";
 
-interface MenuListBodyProps {
+interface MenuBodyProps {
   restaurantId: string;
 }
 
-export function MenuListBody(props: MenuListBodyProps) {
+export function MenuBody(props: MenuBodyProps) {
   const { restaurantId } = props;
   const { data } = useSuspenseQuery({
     queryKey: ["restaurants", restaurantId, "menus"],

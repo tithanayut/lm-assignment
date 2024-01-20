@@ -3,11 +3,11 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { PageContainer } from "@/common/components/container";
 import { getRestaurantInfo } from "@/common/queries/getRestaurantInfo";
 
-interface MenuListHeaderProps {
+interface MenuHeaderProps {
   restaurantId: string;
 }
 
-export function MenuListHeader(props: MenuListHeaderProps) {
+export function MenuHeader(props: MenuHeaderProps) {
   const { restaurantId } = props;
   const { data } = useSuspenseQuery({
     queryKey: ["restaurants", restaurantId],

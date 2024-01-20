@@ -1,6 +1,6 @@
 import { PageContainer } from "@/common/components/container";
 
-export function MenuListHeaderFallback() {
+export function MenuHeaderFallback() {
   return (
     <div className="w-full h-full">
       <div className="w-full h-[calc(100vh*0.25)] lg:h-[calc(100vh*0.3)] bg-gray-300 animate-pulse" />

@@ -1,4 +1,4 @@
-export function MenuItemDrawerContentFallback() {
+export function MenuDrawerContentFallback() {
   return (
     <div className="flex flex-col gap-4 overflow-y-auto rounded-xl animate-pulse">
       <div className="flex justify-center py-6 sticky top-0 bg-white">

@@ -1,8 +1,38 @@
-function App(): JSX.Element {
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ErrorBoundary } from "react-error-boundary";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import { ErrorScreen } from "./common/screens/ErrorScreen";
+import { NotFoundScreen } from "./common/screens/NotFoundScreen";
+import { RestaurantMenuList } from "./pages/RestaurantMenuList/RestaurantMenuList";
+import { RestaurantSelection } from "./pages/RestaurantSelection/RestaurantSelection";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RestaurantSelection />,
+    errorElement: <ErrorScreen />,
+  },
+  {
+    path: "/restaurant/:restaurantId/*",
+    element: <RestaurantMenuList />,
+    errorElement: <ErrorScreen />,
+  },
+  {
+    path: "*",
+    element: <NotFoundScreen />,
+  },
+]);
+
+const queryClient = new QueryClient();
+
+function App() {
   return (
-    <div>
-      <h1>Edit this app to complete LINE MAN Wongnai Frontend Assignment!</h1>
-    </div>
+    <ErrorBoundary fallback={<ErrorScreen />}>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
 

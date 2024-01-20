@@ -2,6 +2,7 @@ import { Service } from "typedi";
 
 import { RESTAURANTS } from "../data/restaurants";
 import { calculateDiscountedPrice } from "../utils/calculateDiscountedPrice";
+import { isCurrentTimeInPeriod } from "../utils/isCurrentTimeInPeriod";
 import type { MenuItemDTO, MenuListDTO, RestaurantDTO, RestaurantListDTO } from "./restaurant.dto";
 import { RestaurantRepository } from "./restaurant.repository";
 
@@ -24,7 +25,7 @@ export class RestaurantService {
       restaurantId: id,
       name,
       coverImage,
-      activeTimePeriod,
+      isOpen: isCurrentTimeInPeriod({ begin: activeTimePeriod.open, end: activeTimePeriod.close }),
     };
   }
 

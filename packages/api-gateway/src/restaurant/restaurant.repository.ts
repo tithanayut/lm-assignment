@@ -30,7 +30,7 @@ export class RestaurantRepository {
     );
 
     if (res.status === 400 || res.status === 404) {
-      throw new NotFoundError("Restaurant not found");
+      throw new NotFoundError("Menu not found");
     }
 
     return res.data;
@@ -45,7 +45,7 @@ export class RestaurantRepository {
     );
 
     if (res.status === 400 || res.status === 404) {
-      throw new NotFoundError("Item not found");
+      throw new NotFoundError("Menu not found");
     }
 
     return res.data;

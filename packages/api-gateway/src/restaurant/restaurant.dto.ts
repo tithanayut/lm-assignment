@@ -7,10 +7,7 @@ export interface RestaurantDTO {
   restaurantId: number;
   name: string;
   coverImage: string;
-  activeTimePeriod: {
-    open: string;
-    close: string;
-  };
+  isOpen: boolean;
 }
 
 export interface MenuListDTO {

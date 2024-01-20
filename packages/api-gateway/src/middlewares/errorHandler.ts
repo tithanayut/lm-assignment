@@ -7,11 +7,12 @@ import { Service } from "typedi";
 @Service()
 export class ErrorHandler implements ExpressErrorMiddlewareInterface {
   error(error: Error, req: Request, res: Response, next: NextFunction) {
+    console.error(error);
     if (isAxiosError(error)) {
       return res.status(503).json({ message: "Service Unavailable" });
     }
     if (error instanceof HttpError) {
-      return res.status(error.httpCode as number).json({ message: error.message });
+      return res.status(error.httpCode).json({ message: error.message });
     }
     return res.status(500).json({ message: "Internal Server Error" });
   }

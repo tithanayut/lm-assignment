@@ -59,7 +59,7 @@ export class RestaurantService {
     };
   }
 
-  getMenuItem = async (restaurantId: number, menuId: string): Promise<MenuItemDTO> => {
+  async getMenuItem(restaurantId: number, menuId: string): Promise<MenuItemDTO> {
     const fullMenu = await this.restaurantRepository.getFullMenu(restaurantId, menuId);
 
     const { id, name, largeImage, fullPrice, discountedPercent, discountedTimePeriod, totalInStock, options } =
@@ -74,5 +74,5 @@ export class RestaurantService {
       isInStock: totalInStock > 0,
       options,
     };
-  };
+  }
 }

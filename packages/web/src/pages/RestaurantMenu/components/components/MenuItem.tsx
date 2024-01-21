@@ -17,7 +17,7 @@ export function MenuItem(props: MenuItemProps) {
   return (
     <Link to={id} className="flex gap-4 hover:bg-gray-200 p-3 rounded-[18px]">
       {image ? (
-        <img src={image} className="min-w-[110px] h-[110px] object-cover rounded-xl" />
+        <img src={image} className="min-w-[110px] h-[110px] object-cover rounded-xl" alt={name} />
       ) : (
         <div className="flex justify-center items-center min-w-[110px] h-[110px] text-sm bg-gray-300 rounded-xl">
           ไม่มีภาพประกอบ
@@ -25,7 +25,7 @@ export function MenuItem(props: MenuItemProps) {
       )}
       <div className="flex flex-col gap-1">
         <h2 className="text-lg">
-          {name} {!isInStock && "(หมด)"}
+          {name} <span>{!isInStock && "(หมด)"}</span>
         </h2>
         <div className="flex items-center gap-2">
           <p className={cn(fullPrice !== discountedPrice && "line-through")}>{fullPrice} บาท</p>

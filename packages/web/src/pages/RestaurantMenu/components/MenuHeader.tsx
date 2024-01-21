@@ -16,7 +16,11 @@ export function MenuHeader(props: MenuHeaderProps) {
 
   return (
     <div className="w-full h-full">
-      <img src={data.coverImage} className="w-full h-[calc(100vh*0.25)] lg:h-[calc(100vh*0.3)] object-cover" />
+      <img
+        src={data.coverImage}
+        className="w-full h-[calc(100vh*0.25)] lg:h-[calc(100vh*0.3)] object-cover"
+        alt={`ภาพประกอบร้าน ${data.name}`}
+      />
       <PageContainer className="flex flex-col gap-2">
         <div className="flex items-start lg:items-end gap-3 mt-4 lg:mt-8">
           <h1 className="text-4xl lg:text-5xl">{data.name}</h1>

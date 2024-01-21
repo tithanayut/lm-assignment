@@ -6,12 +6,12 @@ import { Button } from "@/common/components/button";
 import { RadioGroup, RadioGroupItem } from "@/common/components/radio-group";
 import { getMenuItem } from "@/common/queries/getMenuItem";
 
-interface MenuItemDrawerContentProps {
+interface MenuDrawerContentProps {
   restaurantId: string;
   menuId: string;
 }
 
-export function MenuItemDrawerContent(props: MenuItemDrawerContentProps) {
+export function MenuDrawerContent(props: MenuDrawerContentProps) {
   const { restaurantId, menuId } = props;
   const { data } = useSuspenseQuery({
     queryKey: ["restaurants", restaurantId, "menus", menuId],
@@ -21,10 +21,12 @@ export function MenuItemDrawerContent(props: MenuItemDrawerContentProps) {
   return (
     <div className="relative flex flex-col gap-4 overflow-y-auto rounded-xl">
       <div className="flex justify-center pt-6 pb-4 sticky top-0 bg-white">
-        <h2 className="text-3xl lg:text-4xl text-center w-[calc(100%-120px)]">{data.name}</h2>
+        <h2 className="text-3xl lg:text-4xl text-center w-[calc(100%-120px)]">
+          {data.name} {!data.isInStock && "(หมด)"}
+        </h2>
       </div>
       {data.image ? (
-        <img src={data.image} className="w-full h-[330px] object-cover -z-10" />
+        <img src={data.image} className="w-full h-[330px] object-cover -z-10" alt={`ภาพประกอบเมนู ${data.name}`} />
       ) : (
         <div className="flex justify-center items-center w-full h-[330px] text-lg bg-gray-300">ไม่มีภาพประกอบ</div>
       )}
@@ -33,6 +35,7 @@ export function MenuItemDrawerContent(props: MenuItemDrawerContentProps) {
           <p className="text-2xl lg:text-3xl">ราคา {data.discountedPrice} บาท</p>
           <Button
             variant="outline"
+            title="คัดลอกลิงก์"
             onClick={() => {
               void navigator.clipboard.writeText(window.location.href);
               toast.success("คัดลอกลิงค์สำเร็จ");
@@ -41,7 +44,6 @@ export function MenuItemDrawerContent(props: MenuItemDrawerContentProps) {
             <Link />
           </Button>
         </div>
-
         {data.options.map((option) => (
           <div key={option.label} className="flex flex-col gap-2 w-full">
             <h3 className="text-xl lg:text-2xl">{option.label}</h3>

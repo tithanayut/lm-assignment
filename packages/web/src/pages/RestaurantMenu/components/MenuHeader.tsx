@@ -18,7 +18,7 @@ export function MenuHeader(props: MenuHeaderProps) {
     <div className="w-full h-full">
       <img src={data.coverImage} className="w-full h-[calc(100vh*0.25)] lg:h-[calc(100vh*0.3)] object-cover" />
       <PageContainer className="flex flex-col gap-2">
-        <div className="flex items-end gap-3 mt-4 lg:mt-8">
+        <div className="flex items-start lg:items-end gap-3 mt-4 lg:mt-8">
           <h1 className="text-4xl lg:text-5xl">{data.name}</h1>
           {data.isOpen ? (
             <div className="text-xl py-1 px-8 rounded-lg bg-[#0cbc25] text-white mb-1">เปิด</div>

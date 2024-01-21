@@ -22,13 +22,21 @@ export function RestaurantSelection() {
   if (isError) return <ErrorScreen />;
   return (
     <div className="flex flex-col gap-4 lg:gap-6 justify-center items-center w-screen h-screen">
-      <h1 className="text-2xl lg:text-3xl text-center font-bold text-green-600">สั่งไรดี</h1>
+      <h1 className="text-3xl lg:text-4xl text-center font-bold text-green-600">สั่งไรดี</h1>
 
       <Select value={restaurantId} onValueChange={setRestaurantId}>
         <SelectTrigger className="w-[330px]">
           <SelectValue placeholder={isLoading ? "กำลังโหลด..." : "เลือกร้านอาหาร"} />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent
+          // Prevent a touch event from propagating to elements positioned behind
+          // https://github.com/radix-ui/primitives/issues/1658
+          ref={(ref) =>
+            ref?.addEventListener("touchend", (e) => {
+              e.preventDefault();
+            })
+          }
+        >
           {data?.map((restaurant) => (
             <SelectItem key={restaurant.restaurantId} value={String(restaurant.restaurantId)}>
               {restaurant.name}

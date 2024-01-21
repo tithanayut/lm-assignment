@@ -8,9 +8,9 @@ export function MenuDrawerContentFallback() {
       </div>
       <div className="w-full h-[330px] bg-gray-200 rounded-xl" />
       <div className="flex flex-col items-center gap-2 px-6 w-full">
-        <p className="text-2xl lg:text-3xl border-b pb-3 border-gray-300 w-full">
+        <div className="text-2xl lg:text-3xl border-b pb-3 border-gray-300 w-full">
           <div className="w-full h-6 bg-gray-200 rounded-lg" />
-        </p>
+        </div>
         <div className="flex flex-col gap-2 py-1 w-full">
           <div className="w-full h-6 bg-gray-200 rounded-lg" />
           <div className="w-full h-6 bg-gray-200 rounded-lg" />

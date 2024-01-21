@@ -8,6 +8,10 @@ export interface RestaurantDTO {
   name: string;
   coverImage: string;
   isOpen: boolean;
+  activeTimePeriod: {
+    open: string;
+    close: string;
+  };
 }
 
 export interface MenuListDTO {

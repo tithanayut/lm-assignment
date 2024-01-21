@@ -26,6 +26,7 @@ export class RestaurantService {
       name,
       coverImage,
       isOpen: isCurrentTimeInPeriod({ begin: activeTimePeriod.open, end: activeTimePeriod.close }),
+      activeTimePeriod,
     };
   }
 

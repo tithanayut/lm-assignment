@@ -17,7 +17,11 @@ export function MenuItem(props: MenuItemProps) {
   return (
     <Link to={id} className="flex gap-4 hover:bg-gray-200 p-3 rounded-[18px]">
       {image ? (
-        <img src={image} className="min-w-[110px] h-[110px] object-cover rounded-xl" alt={name} />
+        <img
+          src={image}
+          className={cn("min-w-[110px] h-[110px] object-cover rounded-xl", !isInStock && "grayscale")}
+          alt={name}
+        />
       ) : (
         <div className="flex justify-center items-center min-w-[110px] h-[110px] text-sm bg-gray-300 rounded-xl">
           ไม่มีภาพประกอบ
